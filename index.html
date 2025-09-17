@@ -1,11 +1,12 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HH ENGINEERING | Import/Export & Manufacturing</title>
+    <title>HH ENGINEERING - Export & Import Solutions</title>
     <style>
-        /* Global Styles */
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,44 +15,43 @@
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f8f8;
             color: #333;
             line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c5f2d, #5a8f5a);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
         }
         
-        /* Header Styles */
-        header {
-            background-color: #1a3c6e;
-            color: white;
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-container {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
         
         .logo {
-            font-size: 28px;
+            font-size: 1.8rem;
             font-weight: bold;
             letter-spacing: 1px;
         }
         
         .logo span {
-            color: #ff9800;
+            color: #ffd700;
         }
         
         nav ul {
@@ -60,127 +60,111 @@
         }
         
         nav ul li {
-            margin-left: 30px;
+            margin-left: 1.5rem;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 10px;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
+            transition: background-color 0.3s;
         }
         
         nav ul li a:hover {
-            color: #ff9800;
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
+            background-color: rgba(255,255,255,0.2);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1511811688359-6b0580775fa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 60vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
         }
         
         .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+            padding: 0 2rem;
         }
         
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
         }
         
         .btn {
             display: inline-block;
-            background-color: #ff9800;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 4px;
+            background-color: #ffd700;
+            color: #333;
+            padding: 0.8rem 2rem;
             text-decoration: none;
+            border-radius: 5px;
             font-weight: bold;
-            text-transform: uppercase;
-            transition: background-color 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
+            transition: all 0.3s;
         }
         
         .btn:hover {
-            background-color: #e68a00;
+            background-color: #ffcc00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         /* Services Section */
         .services {
-            padding: 100px 0;
+            padding: 5rem 0;
             background-color: white;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: #1a3c6e;
-            margin-bottom: 15px;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: #2c5f2d;
             position: relative;
-            display: inline-block;
         }
         
-        .section-title h2::after {
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: #ff9800;
-        }
-        
-        .section-title p {
-            color: #666;
-            max-width: 700px;
-            margin: 20px auto 0;
+            height: 4px;
+            background-color: #ffd700;
         }
         
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
         
         .service-card {
-            background-color: #f9f9f9;
-            border-radius: 8px;
+            background-color: #f8f8f8;
+            border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -199,97 +183,101 @@
         }
         
         .service-content {
-            padding: 25px;
+            padding: 1.5rem;
         }
         
         .service-content h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #1a3c6e;
-        }
-        
-        .service-content p {
-            color: #666;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c5f2d;
         }
         
         /* About Section */
         .about {
-            padding: 100px 0;
-            background-color: #f5f5f5;
+            padding: 5rem 0;
+            background-color: #f0f0f0;
         }
         
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 3rem;
             align-items: center;
         }
         
         .about-img {
             height: 400px;
-            background: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
+            background: url('https://images.unsplash.com/photo-1560438710-9a65bf4204da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .about-text h2 {
-            font-size: 36px;
-            color: #1a3c6e;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c5f2d;
         }
         
         .about-text p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .stat-item {
-            text-align: center;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            color: #ff9800;
-            margin-bottom: 5px;
-        }
-        
-        .stat-label {
-            color: #666;
-            font-weight: 500;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
         
         /* Products Section */
         .products {
-            padding: 100px 0;
+            padding: 5rem 0;
             background-color: white;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: #f0f0f0;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.3rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active {
+            background-color: #2c5f2d;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
         
         .product-card {
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             transition: transform 0.3s;
         }
         
@@ -297,105 +285,60 @@
             transform: translateY(-5px);
         }
         
-        .product-img {
-            height: 200px;
-            background-color: #ddd;
-            background-size: cover;
-            background-position: center;
+        .product-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 1rem;
         }
         
-        .product-content {
-            padding: 20px;
-        }
-        
-        .product-content h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #1a3c6e;
-        }
-        
-        .product-content p {
-            color: #666;
-            margin-bottom: 15px;
-            font-size: 14px;
+        .product-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c5f2d;
         }
         
         /* Contact Section */
         .contact {
-            padding: 100px 0;
-            background-color: #1a3c6e;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #2c5f2d, #5a8f5a);
             color: white;
         }
         
-        .contact .section-title h2 {
+        .contact .section-title {
             color: white;
         }
         
-        .contact .section-title h2::after {
-            background-color: #ff9800;
-        }
-        
-        .contact-content {
+        .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 3rem;
         }
         
         .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
         }
         
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
+        .contact-info p {
+            margin-bottom: 1rem;
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
+            align-items: center;
         }
         
-        .contact-icon {
-            margin-right: 15px;
-            font-size: 20px;
-            color: #ff9800;
-        }
-        
-        .map {
-            height: 300px;
-            background-color: #ddd;
-            border-radius: 8px;
-            margin-top: 30px;
-            background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=40.7128,-74.0060&zoom=12&size=600x300&maptype=roadmap&key=YOUR_API_KEY');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        
-        .contact-form .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .contact-form label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
         
         .contact-form input,
         .contact-form textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
             border: none;
-            border-radius: 4px;
-            background-color: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 16px;
-        }
-        
-        .contact-form input::placeholder,
-        .contact-form textarea::placeholder {
-            color: rgba(255,255,255,0.7);
+            border-radius: 5px;
+            background-color: rgba(255,255,255,0.9);
         }
         
         .contact-form textarea {
@@ -403,123 +346,106 @@
             resize: vertical;
         }
         
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
         /* Footer */
         footer {
-            background-color: #112849;
+            background-color: #222;
             color: white;
-            padding: 50px 0 20px;
+            padding: 3rem 0;
+            text-align: center;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: left;
+            margin-bottom: 2rem;
         }
         
         .footer-column h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
         }
         
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: #ff9800;
-        }
-        
-        .footer-column p {
-            margin-bottom: 15px;
-            color: #ccc;
-        }
-        
-        .footer-links {
+        .footer-column ul {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
         }
         
-        .footer-links a {
+        .footer-column ul li a {
             color: #ccc;
             text-decoration: none;
             transition: color 0.3s;
         }
         
-        .footer-links a:hover {
-            color: #ff9800;
+        .footer-column ul li a:hover {
+            color: #ffd700;
         }
         
         .social-links {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
         }
         
         .social-links a {
             display: inline-block;
             width: 40px;
             height: 40px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: #444;
             border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            text-decoration: none;
             transition: background-color 0.3s;
         }
         
         .social-links a:hover {
-            background-color: #ff9800;
+            background-color: #ffd700;
+            color: #222;
         }
         
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #ccc;
-            font-size: 14px;
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            font-size: 0.9rem;
+            color: #aaa;
         }
         
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #ff9800;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-size: 20px;
-            text-decoration: none;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            transition: background-color 0.3s;
-            display: none;
-        }
-        
-        .back-to-top:hover {
-            background-color: #e68a00;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
             .hero h1 {
-                font-size: 40px;
+                font-size: 2.2rem;
             }
             
             .about-content,
-            .contact-content {
+            .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
             }
             
             .about-img {
@@ -527,92 +453,42 @@
             }
         }
         
-        @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            nav ul {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                background-color: #1a3c6e;
-                width: 100%;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                transform: translateY(-150%);
-                transition: transform 0.3s ease;
-            }
-            
-            nav ul.show {
-                transform: translateY(0);
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .hero {
-                height: 80vh;
-            }
-            
+        @media (max-width: 480px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 1.8rem;
             }
             
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero {
-                height: 70vh;
-            }
-            
-            .hero h1 {
-                font-size: 28px;
-            }
-            
-            .section-title h2 {
-                font-size: 26px;
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">HH <span>ENGINEERING</span></div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">HH <span>ENGINEERING</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Global Import/Export & Manufacturing Solutions</h1>
-            <p>HH ENGINEERING provides premium manufacturing and global trade services to businesses worldwide. Quality, reliability, and innovation at your service.</p>
+            <h1>Engineering Ethiopia's Global Trade</h1>
+            <p>Exporting Ethiopia's finest coffee, sesame seeds, and food products while importing construction materials, machinery, and assembling heavy vehicles for a stronger Ethiopia.</p>
             <a href="#contact" class="btn">Get In Touch</a>
         </div>
     </section>
@@ -620,33 +496,27 @@
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Services</h2>
-                <p>We offer comprehensive solutions tailored to meet your business needs in the global marketplace.</p>
-            </div>
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="service-content">
-                        <h3>Global Import Services</h3>
-                        <p>We handle all aspects of importing goods from around the world, including customs clearance, logistics, and quality assurance.</p>
-                        <a href="#contact" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1548725487-0d1f0389d286?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1559491576-5a4e31283a7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="service-content">
                         <h3>Export Solutions</h3>
-                        <p>Our export services help you reach international markets with efficient shipping, documentation, and compliance management.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <p>We expertly handle the export of Ethiopia's premium coffee, sesame seeds, and various food products to international markets with quality assurance and compliance.</p>
                     </div>
                 </div>
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
                     <div class="service-content">
-                        <h3>Manufacturing</h3>
-                        <p>With state-of-the-art facilities, we produce high-quality products according to your specifications and requirements.</p>
-                        <a href="#contact" class="btn">Learn More</a>
+                        <h3>Import Services</h3>
+                        <p>Specializing in importing high-quality construction materials and machinery to support Ethiopia's infrastructure development and industrial growth.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581305136593-6d247b7de4c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                    <div class="service-content">
+                        <h3>Vehicle Manufacturing & Assembly</h3>
+                        <p>We assemble and manufacture heavy vehicles locally, creating jobs and providing reliable transportation solutions for Ethiopia's growing economy.</p>
                     </div>
                 </div>
             </div>
@@ -660,23 +530,11 @@
                 <div class="about-img"></div>
                 <div class="about-text">
                     <h2>About HH ENGINEERING</h2>
-                    <p>Founded in 2005, HH ENGINEERING has grown to become a trusted leader in the import/export and manufacturing industry. Our commitment to excellence and customer satisfaction has allowed us to build lasting relationships with clients across the globe.</p>
-                    <p>With a team of experienced professionals and strategic partnerships worldwide, we ensure seamless operations from production to delivery. Our manufacturing facilities are equipped with cutting-edge technology to produce high-quality products that meet international standards.</p>
-                    <p>At HH ENGINEERING, we believe in building partnerships, not just transactions. Our client-centric approach and dedication to quality have made us the preferred choice for businesses looking to expand their global footprint.</p>
-                    <div class="stats">
-                        <div class="stat-item">
-                            <div class="stat-number" id="clientCount">0</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="projectCount">0</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" id="countryCount">0</div>
-                            <div class="stat-label">Countries Served</div>
-                        </div>
-                    </div>
+                    <p>Founded with a vision to bridge Ethiopia with the global market, HH ENGINEERING has grown into a comprehensive trade and manufacturing company. We are proud to represent Ethiopia's rich agricultural heritage while simultaneously building its industrial future.</p>
+                    <p>Our expertise spans from sourcing the finest Ethiopian coffee beans and sesame seeds from local farmers to ensuring they meet international quality standards for export. Simultaneously, we import essential construction materials and machinery that fuel Ethiopia's development.</p>
+                    <p>Our heavy vehicle assembly plant combines international technology with local expertise, creating employment opportunities and reducing dependency on fully imported vehicles.</p>
+                    <p>At HH ENGINEERING, we believe in sustainable growth, ethical business practices, and contributing to Ethiopia's economic transformation.</p>
+                    <a href="#contact" class="btn">Learn More</a>
                 </div>
             </div>
         </div>
@@ -685,41 +543,84 @@
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
-            <div class="section-title">
-                <h2>Our Products</h2>
-                <p>High-quality manufactured products designed to meet international standards and client specifications.</p>
+            <h2 class="section-title">Our Products</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="exports">Export Products</button>
+                <button class="tab-btn" data-tab="imports">Import Products</button>
+                <button class="tab-btn" data-tab="vehicles">Heavy Vehicles</button>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1593079883661-92d12766e37a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="product-content">
-                        <h3>Industrial Machinery</h3>
-                        <p>High-performance industrial equipment designed for durability and efficiency in manufacturing environments.</p>
-                        <a href="#contact" class="btn">Inquire</a>
+            
+            <div id="exports" class="tab-content active">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Ethiopian Coffee">
+                        <h3>Ethiopian Coffee</h3>
+                        <p>Premium Arabica beans from the birthplace of coffee, available in various regional varieties.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1602812616301-e7bdf45f009c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Sesame Seeds">
+                        <h3>Sesame Seeds</h3>
+                        <p>High-quality white and black sesame seeds, naturally grown and carefully processed.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f1ae39f69e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Food Products">
+                        <h3>Food Products</h3>
+                        <p>Various Ethiopian food products including pulses, spices, oils, and traditional foods.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Specialty Products">
+                        <h3>Specialty Products</h3>
+                        <p>Unique Ethiopian products including honey, teff, and other specialty agricultural goods.</p>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1593079906762-73cc40636748?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="product-content">
-                        <h3>Automotive Parts</h3>
-                        <p>Precision-engineered automotive components that meet the highest quality standards in the industry.</p>
-                        <a href="#contact" class="btn">Inquire</a>
+            </div>
+            
+            <div id="imports" class="tab-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Construction Materials">
+                        <h3>Construction Materials</h3>
+                        <p>Imported cement, steel, glass, and other essential building materials for infrastructure projects.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Heavy Machinery">
+                        <h3>Heavy Machinery</h3>
+                        <p>Bulldozers, excavators, cranes, and other construction equipment for development projects.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360324e70?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Industrial Equipment">
+                        <h3>Industrial Equipment</h3>
+                        <p>Manufacturing machinery, processing equipment, and tools for various industries.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1581094508047-8d62147e4e53?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Specialized Tools">
+                        <h3>Specialized Tools</h3>
+                        <p>Specialized tools and equipment for agriculture, manufacturing, and construction sectors.</p>
                     </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a3f0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="product-content">
-                        <h3>Electronic Components</h3>
-                        <p>Advanced electronic parts and assemblies for various industries, tested for reliability and performance.</p>
-                        <a href="#contact" class="btn">Inquire</a>
+            </div>
+            
+            <div id="vehicles" class="tab-content">
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69883?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Trucks">
+                        <h3>Heavy Duty Trucks</h3>
+                        <p>Assembled locally for durability in Ethiopian conditions, ideal for transport and logistics.</p>
                     </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1581092580735-38eac39b5b76?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                    <div class="product-content">
-                        <h3>Metal Fabrications</h3>
-                        <p>Custom metal products and structures manufactured to exact specifications with precision craftsmanship.</p>
-                        <a href="#contact" class="btn">Inquire</a>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Buses">
+                        <h3>Passenger Buses</h3>
+                        <p>Comfortable and reliable buses for urban and intercity transportation needs.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1564951112089-6b543bb9c3dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Specialized Vehicles">
+                        <h3>Specialized Vehicles</h3>
+                        <p>Custom-built vehicles for specific industries including mining, agriculture, and construction.</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1581235720688-9621782714a4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Vehicle Parts">
+                        <h3>Vehicle Parts & Service</h3>
+                        <p>Locally manufactured parts and comprehensive maintenance services for all our vehicles.</p>
                     </div>
                 </div>
             </div>
@@ -729,46 +630,31 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our team to discuss how we can help with your import/export and manufacturing needs.</p>
-            </div>
-            <div class="contact-content">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-grid">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">📍</div>
-                            <div>
-                                <h4>Address</h4>
-                                <p>WPPV+G37, Addis Ababa, Ethiopia</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">📞</div>
-                            <div>
-                                <h4>Phone</h4>
-                                <p>+251 91 122 0370</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">✉️</div>
-                            <div>
-                                <h4>Email</h4>
-                                <p>info@hhengineering.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <div>
-                                <h4>Working Hours</h4>
-                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
+                    <p><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</p>
+                    <p><i class="fas fa-phone"></i> +251 11 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@hhengineering.et</p>
+                    <p><i class="fas fa-clock"></i> Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <div style="margin-top: 2rem;">
+                        <h3>Why Choose Us?</h3>
+                        <p>• Quality assurance in all our products</p>
+                        <p>• Competitive pricing and reliable delivery</p>
+                        <p>• Local expertise with global standards</p>
+                        <p>• Commitment to sustainable development</p>
                     </div>
-                    <div class="map"></div>
                 </div>
-                 
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="tel" placeholder="Your Phone">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -779,188 +665,108 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>HH ENGINEERING</h3>
-                    <p>Providing global import/export and manufacturing solutions with a commitment to quality, reliability, and customer satisfaction.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook">f</a>
-                        <a href="#" aria-label="Twitter">t</a>
-                        <a href="#" aria-label="LinkedIn">in</a>
-                        <a href="#" aria-label="Instagram">ig</a>
-                    </div>
+                    <p>Building bridges between Ethiopia and the global market through quality exports and strategic imports.</p>
                 </div>
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#products">Products</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Global Import</a></li>
-                        <li><a href="#">Export Solutions</a></li>
-                        <li><a href="#">Manufacturing</a></li>
-                        <li><a href="#">Logistics & Shipping</a></li>
-                        <li><a href="#">Quality Control</a></li>
+                    <h3>Export Products</h3>
+                    <ul>
+                        <li><a href="#">Ethiopian Coffee</a></li>
+                        <li><a href="#">Sesame Seeds</a></li>
+                        <li><a href="#">Food Products</a></li>
+                        <li><a href="#">Specialty Goods</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Subscribe to Newsletter</h3>
-                    <p>Stay updated with our latest products and services.</p>
-                    <form id="newsletterForm">
-                        <div class="form-group">
-                            <input type="email" placeholder="Enter your email" required>
-                        </div>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
+                    <h3>Import & Manufacturing</h3>
+                    <ul>
+                        <li><a href="#">Construction Materials</a></li>
+                        <li><a href="#">Heavy Machinery</a></li>
+                        <li><a href="#">Vehicle Assembly</a></li>
+                        <li><a href="#">Industrial Equipment</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            
+            <div class="copyright">
                 <p>&copy; 2023 HH ENGINEERING. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
-
-    <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
-                if (navMenu.classList.contains('show')) {
-                    navMenu.classList.remove('show');
-                }
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Back to Top Button
-        const backToTopBtn = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.style.display = 'block';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
-        
-        backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Animated Statistics Counter
-        function animateCounter(elementId, targetNumber, duration) {
-            const element = document.getElementById(elementId);
-            const startTime = Date.now();
-            const endTime = startTime + duration;
-            const startNumber = parseInt(element.innerText);
-            const range = targetNumber - startNumber;
-            
-            function updateCounter() {
-                const now = Date.now();
-                const progress = Math.min((now - startTime) / duration, 1);
-                const currentNumber = Math.floor(startNumber + (progress * range));
-                element.innerText = currentNumber.toLocaleString();
-                
-                if (progress < 1) {
-                    requestAnimationFrame(updateCounter);
-                }
-            }
-            
-            updateCounter();
-        }
-        
-        // Check if element is in viewport
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return (
-                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
-                rect.bottom >= 0
-            );
-        }
-        
-        // Initialize counters when about section is in view
-        let countersAnimated = false;
-        window.addEventListener('scroll', () => {
-            const aboutSection = document.querySelector('.about');
-            if (!countersAnimated && isInViewport(aboutSection)) {
-                animateCounter('clientCount', 500, 2000);
-                animateCounter('projectCount', 1250, 2500);
-                animateCounter('countryCount', 45, 1500);
-                countersAnimated = true;
-            }
-        });
-        
-        // Form Submission Handling
-        const contactForm = document.getElementById('contactForm');
-        const newsletterForm = document.getElementById('newsletterForm');
-        
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            contactForm.reset();
-        });
-        
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const emailInput = newsletterForm.querySelector('input[type="email"]');
-            alert(`Thank you for subscribing with ${emailInput.value}!`);
-            newsletterForm.reset();
-        });
-        
-        // Add active class to nav links based on scroll position
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav ul li a');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                    currentSection = section.getAttribute('id');
-                }
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
             });
             
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Sticky header effect
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 }
             });
         });
     </script>
 </body>
 </html>
+```
